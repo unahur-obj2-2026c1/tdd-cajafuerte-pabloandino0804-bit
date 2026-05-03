@@ -29,7 +29,7 @@ public class CajaFuerte {
         if (this.codigoCorrecto(codigoPuesto)){
             this.abierta = true;
         }
-        else if(this.bloqueado.equals(false)){
+        else if(this.noEstaBloqueado()){
             this.limite +=1;
             if(limite == 3){
             this.bloqueado = true;
