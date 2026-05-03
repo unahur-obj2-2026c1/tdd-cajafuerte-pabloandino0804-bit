@@ -7,7 +7,7 @@ public class CajaFuerte {
     private Boolean bloqueado = false;
 
     public Boolean getEstado(){
-        return this.abierta;
+        return abierta;
     }
 
     public void setEstado(Boolean estado){
@@ -15,7 +15,7 @@ public class CajaFuerte {
     }
 
     public Integer getCodigo(){
-        return this.codigo;
+        return codigo;
     }
 
     public void cerrar(Integer codigo){
@@ -29,7 +29,7 @@ public class CajaFuerte {
         if (this.codigoCorrecto(codigoPuesto)){
             this.abierta = true;
         }
-        else if(!this.estaBloqueado()){
+        else if(this.bloqueado.equals(false)){
             this.limite +=1;
             if(limite == 3){
             this.bloqueado = true;
@@ -46,7 +46,11 @@ public class CajaFuerte {
     }
 
     public Boolean estaCerrado(){
-        return !this.estaAbierto();
+        return this.abierta.equals(false);
+    }
+
+    public Boolean noEstaBloqueado(){
+        return this.bloqueado.equals(false);
     }
 
     public Boolean estaBloqueado(){
