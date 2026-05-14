@@ -1,6 +1,7 @@
 package ar.edu.unahur.obj2.tdd;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import org.junit.jupiter.api.Test;
 
@@ -36,6 +37,7 @@ public class CajaFuerteTest {
         CajaFuerte caja = new CajaFuerte();
         caja.cerrar(1234);
         caja.abrir(4321);
+        caja.getEstado();
         assertFalse(caja.estaAbierto());
     }
 
@@ -45,8 +47,11 @@ public class CajaFuerteTest {
         CajaFuerte caja = new CajaFuerte();
         caja.cerrar(1234);
         caja.cerrar(2345);
+        assertEquals(caja.getCodigo(), 1234);
         caja.abrir(1234);
+        caja.getEstado();
         assertTrue(caja.estaAbierto());
+        
     }
 
     /*
@@ -60,6 +65,8 @@ public class CajaFuerteTest {
         caja.abrir(2345);
         caja.abrir(2345);
         caja.abrir(2345);
+        caja.getEstado();
         assertTrue(caja.estaBloqueado());
+        assertTrue(caja.estaCerrado());
     }
 }
